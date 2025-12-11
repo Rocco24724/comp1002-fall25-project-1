@@ -1,0 +1,61 @@
+/*Style Sheet that targets the html and body element*/
+html, body
+{
+    height: 100%;
+    background-color: #e60606;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: white;
+}
+
+/*Targets header to change it's style*/
+header
+{
+    display: flex;
+    align-items: center;
+    background-color: #e60606;
+    padding: 10px;
+}
+
+/*Targets img's in the header*/
+header img
+{
+    height: 250px;
+}
+
+/*Targets the button class to change it's style*/
+.buttons 
+{
+    background: yellow;
+    padding: 24px 48px;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 5px
+}
+
+/*Targets the button class only when the user is hovering it*/
+.buttons:hover 
+{
+    /*This Makes the Button class move up by 2px*/
+    transform: translateY(-2px);
+
+    /*This adds a drop shadow to the buttons when they are hovered */
+    box-shadow: 0 4px 12px black;
+
+    /*This adds a 0.2 second trasnition when the buttons are hovered to make it more smooth*/
+    transition: 0.2s ease;
+}
+
+/*Targets the main element using this for centering both the button text and the images*/
+main
+{
+    text-align: center;
+}
+
+/*Targets the main images and im using this to change the size of the images*/
+main img
+{
+    height: 520px;
+}
