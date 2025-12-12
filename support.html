@@ -1,0 +1,83 @@
+<!-- Sets the doctype to english and sets it to the english -->
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Some of the meta data is stored in the head element -->
+<head>
+    <meta charset="UTF-8" />
+    <title>Contact Us - McDonald's</title>
+    <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body>
+    <header>
+        <!-- This is turning the logo image I have set into a button to return you to the main page -->
+        <a href="index.html">
+            <!-- Image credit: Classic McDonald's Hamburgers Logo by Wingsdomain Art (https://fineartamerica.com/featured/classic-mcdonalds-hamburgers--billion-served--painterly-wingsdomain-art-and-photography.html?product=greeting-card)-->
+            <img src="images/McDonalds-Logo-2.jpg" alt="McDonald-Logo" />
+        </a>
+        <h1>Support</h1>
+    </header>
+
+    <main>
+        <!-- Contact form section for users to reach out to us -->
+        <div class="contact">
+            <h2>Need Help?</h2>
+            <p>If you have any questions or concerns, feel free to reach out to us using the form below.</p>
+
+            <!-- Contact form for user to fill in their name, email, and issue -->
+            <form id="contactForm">
+                <label for="name">Your Name:</label><br>
+                <input type="text" id="name" name="name" class="inputBox"><br><br>
+
+                <!--The email type makes it so the user has to type a @ symbol for it to be vaild for the form-->
+                <label for="email">Your Email:</label><br>
+                <input type="email" id="email" name="email" class="inputBox"><br><br>
+
+                <label for="issue">How Can We Help You?</label><br>
+                <textarea id="issue" name="issue" rows="5" class="inputBox"></textarea><br><br>
+
+                <button type="submit" class="buttons">Send Message</button>
+            </form>
+
+            <!-- This will show the success or error message -->
+            <p id="contactResponse" style="display:none; margin-top:20px; font-size:20px;"></p>
+        </div>
+    </main>
+
+    <!-- JavaScript for form validation and response -->
+    <script>
+        const contactForm = document.getElementById("contactForm");
+        const contactResponse = document.getElementById("contactResponse");
+
+        // Runs this function when the user submits the form
+        contactForm.addEventListener("submit", function(event) {
+
+            // Stops the page from refreshing when the form is submitted
+            event.preventDefault();
+
+            // Gets the text the user entered in the form boxes
+            const name = document.getElementById("name").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const issue = document.getElementById("issue").value.trim();
+
+            //If either part of the form is not filled in it asks the user to fill in both forms before submitting
+            if (name === "" || email === "" || issue === "") {
+                contactResponse.style.display = "block";
+                contactResponse.style.color = "yellow";
+                contactResponse.textContent = "Please fill out all fields before submitting.";
+                return;
+            }
+
+            // Shows a thank you message if everything is filled in correctly
+            contactResponse.style.display = "block";
+            contactResponse.style.color = "white";
+            contactResponse.textContent = "Thank you for contacting us, " + name + "! We will get back to you soon.";
+
+            // Clears the form after the user submits it
+            contactForm.reset();
+        });
+    </script>
+
+</body>
+</html>
