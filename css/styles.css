@@ -60,7 +60,14 @@ main img
     height: 520px;
 }
 
+/*This targets the McDonald's logo from 1948*/
 .logo
 {
-    height:288px
+    height:280px
+}
+
+/*This targets the picture of the McDonald brothers*/
+.brothers
+{
+    height: 320px
 }

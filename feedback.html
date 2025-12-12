@@ -1,0 +1,76 @@
+<!-- Sets the doctype to english and sets it to the english -->
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Some of the meta data is stored in the head element -->
+<head>
+    <meta charset="UTF-8" />
+    <title>Feedback - McDonald's</title>
+    <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body>
+    <header>
+        <!-- This is turning the logo image I have set into a button to return you to the main page -->
+        <a href="index.html">
+            <!-- Image credit: Classic McDonald's Hamburgers Logo by Wingsdomain Art -->
+            <img src="images/McDonalds-Logo-2.jpg" alt="McDonald-Logo" />
+        </a>
+        <h1>Feedback</h1>
+    </header>
+
+    <main>
+        <!-- Feedback form section -->
+        <div class="feedback">
+            <h2>We Value Your Feedback!</h2>
+            <p>Please let us know what you think about our restaurant.</p>
+
+            <!-- Feedback form for user to fill in their name and feedback -->
+            <form id="feedbackForm">
+                <label for="name">Your Name:</label><br>
+                <input type="text" id="name" name="name" class="inputBox"><br><br>
+
+                <label for="message">Your Feedback:</label><br>
+                <textarea id="message" name="message" rows="5" class="inputBox"></textarea><br><br>
+
+                <button type="submit" class="buttons">Submit Feedback</button>
+            </form>
+
+            <!-- This will show the success message -->
+            <p id="responseMessage" style="display:none; margin-top:20px; font-size:20px;"></p>
+        </div>
+    </main>
+
+    <!-- JavaScript for form validation and response -->
+    <script>
+        const form = document.getElementById("feedbackForm");
+        const responseMessage = document.getElementById("responseMessage");
+
+        form.addEventListener("submit", function(event) {
+            // stops the page from refreshing
+            event.preventDefault();
+
+            //Gets the text the user inputted in the forms
+            const name = document.getElementById("name").value.trim();
+            const message = document.getElementById("message").value.trim();
+
+            //If either part of the form is not filled in it asks the user to fill in both forms before submitting
+            if (name === "" || message === "") {
+                responseMessage.style.display = "block";
+                responseMessage.style.color = "yellow";
+                responseMessage.textContent = "Please fill out both fields before submitting.";
+                return;
+            }
+
+            // Show thank you message
+            responseMessage.style.display = "block";
+            responseMessage.style.color = "white";
+            responseMessage.textContent = "Thank you for your feedback, " + name + "!";
+
+            // Clear the form
+            form.reset();
+        });
+    </script>
+
+</body>
+</html>
